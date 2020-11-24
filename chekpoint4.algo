@@ -1,0 +1,50 @@
+PROCEDURE remplir-tab(tab)
+
+BEGIN
+        Write('donne la longeur du tab');
+    Read(n);
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write('donner lelemnt',n,'du tableau');
+        Read(tab[i]);
+    END_FOR
+END
+
+
+PROCEDURE aficher(tab)
+
+BEGIN
+    Write('le tableau apres le tri par selection est :')
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write(tab[i]);
+    END_FOR
+END
+
+PROCEDURE swap(x,y)
+VAR
+    x,y,z:INTEGER
+BEGIN
+    z:=y;
+    y:=x;
+    x:=z;
+END
+
+
+
+
+ALGORITHM Insertion-sort
+VAR
+    tab : ARRAY_OF INTEGER[20];
+    n,i,j:INTEGER;
+BEGIN
+    remplir-tab(tab);
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        joker:=tab[i];
+        j:=i-1;
+        WHILE (j>=0 and tab[j]>joker) DO
+            swap(tab[j],tab[i]);
+            j:=j-1;
+        END_WHILE
+    END_FOR
+    aficher(tab);
+
+END
